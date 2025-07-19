@@ -1,6 +1,6 @@
 // Initialize EmailJS with your public key
 (function () {
-  emailjs.init("YOUR_ACTUAL_PUBLIC_KEY"); // Replace with your EmailJS public key
+  emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // Replace with your EmailJS public key
 })();
 
 // Smooth scroll for nav links
@@ -32,7 +32,7 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
     return;
   }
 
-  emailjs.send('YOUR_ACTUAL_SERVICE_ID', 'YOUR_ACTUAL_TEMPLATE_ID', {
+  emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', {
     from_name: name,
     from_email: email,
     message: message,
