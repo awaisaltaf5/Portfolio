@@ -337,6 +337,28 @@ form button:hover {
   animation-play-state: paused;
 }
 
+.notification {
+  display: none;
+  background: #6c63ff;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1em;
+  margin-bottom: 15px;
+  animation: fadeIn 0.5s ease-in forwards;
+  box-shadow: 0 4px 10px rgba(108, 99, 255, 0.5);
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.notification.show {
+  display: block;
+}
+
 .scroll-down {
   position: absolute;
   bottom: 20px;
@@ -425,5 +447,10 @@ footer p {
   form button {
     padding: 10px 25px;
     font-size: 1em;
+  }
+
+  .notification {
+    font-size: 0.9em;
+    padding: 8px;
   }
 }

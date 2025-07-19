@@ -23,13 +23,23 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
   submitButton.disabled = true;
   submitButton.textContent = 'Sending...';
 
+  // Get the notification element
+  const notification = document.getElementById('notification');
+
   // Send form data using EmailJS
   emailjs.sendForm('service_th3c82o', 'template_0sw6lvi', this)
     .then(function(response) {
-      alert('Thanks for getting in touch! I\'ll reply soon.');
+      // Show notification
+      notification.classList.add('show');
+      // Reset form
       document.getElementById('contact-form').reset();
+      // Reset button
       submitButton.disabled = false;
       submitButton.textContent = 'Send Message';
+      // Hide notification after 3 seconds
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000);
     }, function(error) {
       alert('Failed to send message. Please try again later.');
       console.error('EmailJS Error:', error);
