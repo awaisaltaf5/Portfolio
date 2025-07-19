@@ -1,6 +1,6 @@
 // Initialize EmailJS with your public key
 (function () {
-  emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+  emailjs.init("YOUR_ACTUAL_PUBLIC_KEY"); // Replace with your EmailJS public key
 })();
 
 // Smooth scroll for nav links
@@ -21,22 +21,30 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
   e.preventDefault();
 
   const form = this;
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const time = new Date().toLocaleString('en-US', { timeZone: 'Asia/Karachi' }); // PKT timestamp
 
-  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+  // Basic validation
+  if (!name || !email || !message) {
+    alert('Please fill in all fields.');
+    return;
+  }
+
+  emailjs.send('YOUR_ACTUAL_SERVICE_ID', 'YOUR_ACTUAL_TEMPLATE_ID', {
     from_name: name,
     from_email: email,
     message: message,
+    time: time,
     to_email: 'fortools28@gmail.com'
   })
     .then(function (response) {
       alert('Message sent successfully! Thanks for getting in touch.');
       form.reset();
     }, function (error) {
-      alert('Failed to send message. Please try again later.');
       console.error('EmailJS error:', error);
+      alert('Failed to send message. Please check your connection or try again later. Error details: ' + error.text);
     });
 });
 
