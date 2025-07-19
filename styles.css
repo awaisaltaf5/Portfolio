@@ -15,7 +15,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 nav ul {
@@ -70,18 +70,14 @@ canvas#networkCanvas {
   font-size: 2.5em;
   margin-bottom: 10px;
   color: #6c63ff;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 4px 10px rgba(0,0,0,0.6);
   font-weight: 700;
   animation: scaleIn 1.5s ease-out forwards;
 }
 
 @keyframes scaleIn {
-  0% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(0.9); }
+  100% { transform: scale(1); }
 }
 
 .highlight {
@@ -92,19 +88,13 @@ canvas#networkCanvas {
   font-size: 1.5em;
   opacity: 0;
   color: #6c63ff;
-  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 3px 8px rgba(0,0,0,0.5);
   animation: subtitleScaleIn 1.5s ease-out forwards 0.5s;
 }
 
 @keyframes subtitleScaleIn {
-  0% {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 .buttons button {
@@ -127,15 +117,9 @@ canvas#networkCanvas {
 }
 
 @keyframes glowPulse {
-  0% {
-    box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 15px rgba(108, 99, 255, 0.7);
-  }
-  100% {
-    box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
-  }
+  0% { box-shadow: 0 0 5px rgba(108, 99, 255, 0.3); }
+  50% { box-shadow: 0 0 15px rgba(108, 99, 255, 0.7); }
+  100% { box-shadow: 0 0 5px rgba(108, 99, 255, 0.3); }
 }
 
 .profile-pic img {
@@ -151,14 +135,8 @@ canvas#networkCanvas {
 }
 
 @keyframes profileFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .profile-pic img:hover {
@@ -190,9 +168,7 @@ canvas#networkCanvas {
   }
 }
 
-#projects,
-#skills,
-#contact {
+#projects, #skills, #contact {
   background: #fff;
 }
 
@@ -215,17 +191,9 @@ h2 {
   animation: fadeInUp 0.5s ease-out forwards;
 }
 
-#projects li:nth-child(1) {
-  animation-delay: 0.2s;
-}
-
-#projects li:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-#projects li:nth-child(3) {
-  animation-delay: 0.6s;
-}
+#projects li:nth-child(1) { animation-delay: 0.2s; }
+#projects li:nth-child(2) { animation-delay: 0.4s; }
+#projects li:nth-child(3) { animation-delay: 0.6s; }
 
 .skills-list {
   list-style: none;
@@ -255,7 +223,7 @@ h2 {
   background: #ffffff;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .contact-info {
@@ -298,15 +266,9 @@ h2 {
 }
 
 @keyframes iconPulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 .social-links svg {
@@ -337,8 +299,7 @@ form label {
   font-size: 1em;
 }
 
-form input,
-form textarea {
+form input, form textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -347,8 +308,7 @@ form textarea {
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-form input:focus,
-form textarea:focus {
+form input:focus, form textarea:focus {
   border-color: #6c63ff;
   box-shadow: 0 0 8px rgba(108, 99, 255, 0.3);
   outline: none;
@@ -420,7 +380,7 @@ footer {
   text-align: center;
   padding: 15px 0;
   width: 100%;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
   font-size: 1em;
   font-weight: 400;
 }
@@ -435,7 +395,7 @@ footer p {
     text-align: center;
     gap: 30px;
   }
-
+  
   .intro {
     text-align: center;
   }
@@ -458,8 +418,7 @@ footer p {
     padding: 20px;
   }
 
-  form input,
-  form textarea {
+  form input, form textarea {
     font-size: 0.9em;
   }
 
