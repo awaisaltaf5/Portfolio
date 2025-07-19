@@ -92,7 +92,6 @@
         </a>
       </div>
       <form id="contact-form">
-        <div id="notification" class="notification" style="display: none;">Message sent successfully!</div>
         <label for="name">Your Name</label>
         <input type="text" id="name" name="from_name" placeholder="Enter your name" required />
         <label for="email">Your Email</label>
@@ -107,6 +106,14 @@
   <footer>
     <p>© 2025 Muhammad Awais Altaf. All Rights Reserved.</p>
   </footer>
+
+  <div id="notification" class="notification">
+    <svg class="checkmark" viewBox="0 0 52 52">
+      <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+      <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+    </svg>
+    <p>Message sent successfully!</p>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="scripts.js"></script>
