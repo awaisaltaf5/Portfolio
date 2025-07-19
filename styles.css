@@ -79,7 +79,6 @@ canvas#networkCanvas {
   0% {
     transform: scale(0.9);
   }
-
   100% {
     transform: scale(1);
   }
@@ -102,7 +101,6 @@ canvas#networkCanvas {
     transform: scale(0.95);
     opacity: 0;
   }
-
   100% {
     transform: scale(1);
     opacity: 1;
@@ -132,11 +130,9 @@ canvas#networkCanvas {
   0% {
     box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
   }
-
   50% {
     box-shadow: 0 0 15px rgba(108, 99, 255, 0.7);
   }
-
   100% {
     box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
   }
@@ -159,7 +155,6 @@ canvas#networkCanvas {
     opacity: 0;
     transform: translateY(20px) scale(0.95);
   }
-
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -306,11 +301,9 @@ h2 {
   0% {
     transform: scale(1);
   }
-
   50% {
     transform: scale(1.05);
   }
-
   100% {
     transform: scale(1);
   }
@@ -401,19 +394,12 @@ form button:hover {
 }
 
 @keyframes bounce {
-
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
+  0%, 20%, 50%, 80%, 100% {
     transform: translate(-50%, 0);
   }
-
   40% {
     transform: translate(-50%, -10px);
   }
-
   60% {
     transform: translate(-50%, -5px);
   }
