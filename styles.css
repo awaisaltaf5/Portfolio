@@ -168,7 +168,67 @@ canvas#networkCanvas {
   }
 }
 
-#projects, #skills, #contact {
+#projects {
+  background: #fff;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.project-card {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5em;
+}
+
+.project-card p {
+  color: #666;
+  font-size: 1em;
+}
+
+.project-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #6c63ff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 1rem;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.project-button:hover {
+  background: #5a54cc;
+  transform: scale(1.05);
+}
+
+.projects-closing {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #666;
+  font-size: 1.1em;
+}
+
+#skills, #contact {
   background: #fff;
 }
 
