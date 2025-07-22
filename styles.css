@@ -214,6 +214,7 @@ canvas#networkCanvas {
   border-radius: 5px;
   margin-top: 1rem;
   transition: background 0.3s, transform 0.3s;
+  visibility: visible;
 }
 
 .project-button:hover {
@@ -560,5 +561,25 @@ footer p {
   .checkmark {
     width: 40px;
     height: 40px;
+  }
+
+  .project-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 10px;
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+
+  .project-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 1em;
+    margin-top: 0.75rem;
+    visibility: visible;
   }
 }
