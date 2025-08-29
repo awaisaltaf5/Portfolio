@@ -14,6 +14,32 @@ function scrollToSection(id) {
   document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 }
 
+// Theme toggle functionality
+const themeSwitch = document.getElementById('theme-switch');
+const slider = document.querySelector('.slider');
+
+// Load saved theme from localStorage
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.body.classList.add(savedTheme);
+if (savedTheme === 'dark') {
+  themeSwitch.checked = true;
+}
+
+themeSwitch.addEventListener('change', () => {
+  document.body.classList.toggle('dark');
+  const isDark = document.body.classList.contains('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  // Update particle colors and other theme-dependent elements
+  particles.forEach(p => {
+    p.color = isDark ? '#8a83ff' : '#d0d2f7';
+  });
+  // Add scale animation on toggle
+  slider.style.transform = 'scale(1.15)';
+  setTimeout(() => {
+    slider.style.transform = 'scale(1)';
+  }, 300);
+});
+
 // Contact form submission with EmailJS
 document.getElementById('contact-form').addEventListener('submit', function(e) {
   e.preventDefault();
@@ -48,6 +74,9 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     });
 });
 
+// Dynamic footer year
+document.getElementById('current-year').textContent = new Date().getFullYear();
+
 // Network particle animation
 const canvas = document.getElementById('networkCanvas');
 const ctx = canvas.getContext('2d');
@@ -62,7 +91,7 @@ resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 
 const particles = [];
-const numParticles = 50;
+const numParticles = 30; // Reduced for better performance
 const maxDistance = 150;
 
 class Particle {
@@ -71,7 +100,7 @@ class Particle {
     this.y = Math.random() * height;
     this.vx = (Math.random() - 0.5) * 2;
     this.vy = (Math.random() - 0.5) * 2;
-    this.color = '#d0d2f7';
+    this.color = document.body.classList.contains('dark') ? '#8a83ff' : '#d0d2f7';
   }
 
   update() {
@@ -101,11 +130,21 @@ function animate() {
   ctx.clearRect(0, 0, width, height);
   animationTime = (Date.now() % animationDuration) / animationDuration;
 
-  // Update particle colors based on animation time
+  // Update particle colors based on animation time and theme
+  const isDark = document.body.classList.contains('dark');
   const colorT = Math.abs(animationTime - 0.5) * 2; // 0 to 1
-  const r = Math.round(208 + (74 - 208) * colorT); // #d0d2f7 to #4a42c0
-  const g = Math.round(210 + (66 - 210) * colorT);
-  const b = Math.round(247 + (192 - 247) * colorT);
+  let r, g, b;
+  if (isDark) {
+    // Dark mode: Transition from #8a83ff to #5a54cc
+    r = Math.round(138 + (90 - 138) * colorT);
+    g = Math.round(131 + (84 - 131) * colorT);
+    b = Math.round(255 + (204 - 255) * colorT);
+  } else {
+    // Light mode: Transition from #d0d2f7 to #4a42c0
+    r = Math.round(208 + (74 - 208) * colorT);
+    g = Math.round(210 + (66 - 210) * colorT);
+    b = Math.round(247 + (192 - 247) * colorT);
+  }
   const currentColor = `rgb(${r}, ${g}, ${b})`;
 
   particles.forEach(p => {
