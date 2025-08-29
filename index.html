@@ -15,14 +15,33 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="theme-toggle-container">
-        <span class="theme-label">Light</span>
-        <label class="switch">
-          <input type="checkbox" id="theme-switch" aria-label="Toggle light/dark mode">
-          <span class="slider"></span>
-        </label>
-        <span class="theme-label">Dark</span>
-      </div>
+      <button class="theme-toggle" aria-label="Toggle light/dark mode">
+        <svg class="theme-icon" viewBox="0 0 24 24">
+          <g class="sun-icon">
+            <circle cx="12" cy="12" r="6.5" fill="currentColor"/>
+            <path d="M12 1v4m0 18v4m-10-12h4m20 0h-4M3.34 3.34l2.83 2.83m12.02 12.02l-2.83-2.83M3.34 20.66l2.83-2.83m12.02-12.02l-2.83 2.83" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </g>
+          <g class="moon-icon" style="display: none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" fill="url(#moonGradient)" filter="url(#moonGlow)"/>
+            <circle cx="10" cy="8" r="1" fill="#fff"/>
+            <circle cx="14" cy="6" r="0.8" fill="#fff"/>
+            <circle cx="14" cy="10" r="0.6" fill="#fff"/>
+            <defs>
+              <linearGradient id="moonGradient" x1="11.21" y1="3" x2="21" y2="12.79" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#8a83ff"/>
+                <stop offset="1" stop-color="#5a54cc"/>
+              </linearGradient>
+              <filter id="moonGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+                <feComponentTransfer>
+                  <feFuncA type="linear" slope="0.5"/>
+                </feComponentTransfer>
+              </filter>
+            </defs>
+          </g>
+        </svg>
+      </button>
+      
     </nav>
   </header>
 
@@ -95,7 +114,7 @@
         </p>
         <p>
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1.45 1 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02l-2.2 2.2z"/>
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02l-2.2 2.2z"/>
           </svg>
           Phone: +923364736500
         </p>
@@ -117,22 +136,31 @@
           </svg>
         </a>
         <a href="https://www.instagram.com/awaisgakhar28" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
-          <svg class="instagram-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Instagram logo">
-            <defs>
-              <linearGradient id="igGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#f58529"/>
-                <stop offset="30%" stop-color="#feda77"/>
-                <stop offset="50%" stop-color="#dd2a7b"/>
-                <stop offset="70%" stop-color="#8134af"/>
-                <stop offset="100%" stop-color="#515BD4"/>
-              </linearGradient>
-            </defs>
-            <rect x="16" y="16" width="480" height="480" rx="120" fill="url(#igGrad)"/>
-            <rect x="96" y="96" width="320" height="320" rx="90" fill="none" stroke="#fff" stroke-width="40"/>
-            <circle cx="256" cy="256" r="80" fill="none" stroke="#fff" stroke-width="40"/>
-            <circle cx="350" cy="162" r="26" fill="#fff"/>
-          </svg>
-        </a>
+  <svg class="instagram-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Instagram logo">
+    <defs>
+      <linearGradient id="igGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#f58529"/>
+        <stop offset="30%" stop-color="#feda77"/>
+        <stop offset="50%" stop-color="#dd2a7b"/>
+        <stop offset="70%" stop-color="#8134af"/>
+        <stop offset="100%" stop-color="#515BD4"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Background -->
+    <rect x="16" y="16" width="480" height="480" rx="120" fill="url(#igGrad)"/>
+
+    <!-- Rounded-square camera outline -->
+    <rect x="96" y="96" width="320" height="320" rx="90" fill="none" stroke="#fff" stroke-width="40"/>
+
+    <!-- Lens -->
+    <circle cx="256" cy="256" r="80" fill="none" stroke="#fff" stroke-width="40"/>
+
+    <!-- Viewfinder dot -->
+    <circle cx="350" cy="162" r="26" fill="#fff"/>
+  </svg>
+</a>
+
       </div>
       <form id="contact-form">
         <label for="name">Your Name</label>
