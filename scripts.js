@@ -1,24 +1,24 @@
 // Initialize EmailJS with your Public Key (replace with your actual key)
 emailjs.init("ER6VjjztnDtX4qUCR");
 
-// Smooth scroll for nav links
+// Smooth scroll for nav links with offset
 document.querySelectorAll('nav a').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
     const targetId = link.getAttribute('href').substring(1);
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80; // Offset to account for navbar height (60px padding + some buffer)
+      const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   });
 });
-
-function scrollToSection(id) {
-  const targetElement = document.getElementById(id);
-  if (targetElement) {
-    targetElement.scrollIntoView({ behavior: 'smooth' });
-  }
-}
 
 // Theme toggle functionality
 const themeSwitch = document.getElementById('theme-switch');
@@ -118,7 +118,7 @@ if (canvas) {
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  const numParticles = Math.min(20, Math.floor(window.innerWidth / 50)); // Dynamic particle count based on screen width
+  const numParticles = Math.min(20, Math.floor(window.innerWidth / 50));
   const maxDistance = 150;
 
   class Particle {

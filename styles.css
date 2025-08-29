@@ -22,10 +22,10 @@ body.dark {
 
 header {
   background: #ffffff;
-  padding: 15px 0;
+  padding: 10px 0; /* Reduced from 15px for minimalist height */
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1001;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -48,7 +48,7 @@ nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 15px; /* Reduced gap for compactness */
   margin: 0;
   padding: 0;
 }
@@ -57,10 +57,11 @@ nav a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
-  padding: 10px 15px;
+  padding: 8px 12px; /* Adjusted for desktop */
   -webkit-transition: background 0.3s, color 0.3s;
   transition: background 0.3s, color 0.3s;
   display: block;
+  font-size: 0.9em; /* Slightly reduced font size */
 }
 
 body.dark nav a {
@@ -80,12 +81,12 @@ body.dark nav a:hover {
 .theme-toggle-container {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 5px 10px;
+  gap: 8px; /* Reduced gap */
+  padding: 3px 6px; /* Reduced padding for minimalist design */
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  position: absolute;
-  right: 15px;
+  border-radius: 15px; /* Slightly smaller radius */
+  margin: 5px auto 0; /* Centered below links with top margin */
+  width: fit-content;
 }
 
 body.dark .theme-toggle-container {
@@ -93,7 +94,7 @@ body.dark .theme-toggle-container {
 }
 
 .theme-label {
-  font-size: 0.9em;
+  font-size: 0.8em; /* Reduced font size */
   color: #333;
   font-weight: 500;
   -webkit-transition: color 0.3s;
@@ -107,8 +108,8 @@ body.dark .theme-label {
 .switch {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 24px;
+  width: 40px; /* Reduced from 50px */
+  height: 20px; /* Reduced from 24px */
 }
 
 .switch input {
@@ -127,16 +128,16 @@ body.dark .theme-label {
   background-color: #ccc;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  border-radius: 12px;
+  border-radius: 10px; /* Reduced from 12px */
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 16px;
-  width: 16px;
-  left: 4px;
-  bottom: 4px;
+  height: 14px; /* Reduced from 16px */
+  width: 14px; /* Reduced from 16px */
+  left: 3px;
+  bottom: 3px;
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -152,21 +153,22 @@ body.dark input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(20px); /* Adjusted for smaller width */
+  transform: translateX(20px);
 }
 
 .slider:hover {
-  box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.5); /* Reduced shadow size */
 }
 
 body.dark .slider:hover {
-  box-shadow: 0 0 10px rgba(138, 131, 255, 0.5);
+  box-shadow: 0 0 8px rgba(138, 131, 255, 0.5);
 }
 
 section {
-  padding: 60px 20px;
+  padding: 80px 20px 60px;
   text-align: center;
+  min-height: 100vh;
 }
 
 #home {
@@ -335,6 +337,8 @@ body.dark .home-flex {
 
 #projects, #skills, #contact {
   background: #fff;
+  position: relative;
+  z-index: 1;
 }
 
 body.dark #projects, body.dark #skills, body.dark #contact {
@@ -805,28 +809,50 @@ footer p {
 
 @media (max-width: 768px) {
   nav {
-    flex-direction: column;
-    padding: 5px 0; /* Reduced padding for compactness */
-  }
-
-  .theme-toggle-container {
-    position: static;
-    margin: 10px auto; /* Centered with auto margins */
-    width: fit-content;
-    padding: 4px 8px; /* Slightly reduced padding */
+    flex-direction: row; /* Changed to horizontal */
+    padding: 2px 0; /* Reduced for minimalist height */
+    justify-content: center; /* Ensure centered */
   }
 
   nav ul {
-    flex-direction: column;
-    gap: 8px; /* Reduced gap for tighter spacing */
-    width: 100%;
+    flex-direction: row; /* Horizontal layout */
+    gap: 10px; /* Reduced gap */
     padding: 0;
     margin: 0;
   }
 
   nav a {
-    padding: 6px 8px; /* Reduced padding for smaller touch targets */
+    padding: 4px 6px; /* Reduced padding for minimalist design */
+    font-size: 0.8em; /* Reduced font size */
     text-align: center;
+  }
+
+  .theme-toggle-container {
+    position: static;
+    margin: 5px auto 0; /* Centered below links */
+    width: fit-content;
+    order: 1; /* Move below ul */
+  }
+
+  .theme-label {
+    font-size: 0.7em; /* Further reduced for mobile */
+  }
+
+  .switch {
+    width: 36px; /* Reduced */
+    height: 18px; /* Reduced */
+  }
+
+  .slider:before {
+    height: 12px; /* Reduced */
+    width: 12px; /* Reduced */
+    left: 2px;
+    bottom: 2px;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(18px); /* Adjusted for smaller width */
+    transform: translateX(18px);
   }
 
   .home-flex {
@@ -853,27 +879,6 @@ footer p {
 
   .scroll-down {
     bottom: 40px;
-  }
-
-  .theme-label {
-    font-size: 0.8em;
-  }
-
-  .switch {
-    width: 40px;
-    height: 20px;
-  }
-
-  .slider:before {
-    height: 14px;
-    width: 14px;
-    left: 3px;
-    bottom: 3px;
-  }
-
-  input:checked + .slider:before {
-    -webkit-transform: translateX(20px);
-    transform: translateX(20px);
   }
 
   #contact .contact-container {
@@ -997,6 +1002,32 @@ footer p {
   .scroll-down svg {
     width: 30px;
     height: 30px;
+  }
+
+  nav a {
+    padding: 3px 5px; /* Further reduced for very small screens */
+    font-size: 0.7em; /* Further reduced */
+  }
+
+  .theme-label {
+    font-size: 0.6em; /* Further reduced */
+  }
+
+  .switch {
+    width: 32px; /* Further reduced */
+    height: 16px; /* Further reduced */
+  }
+
+  .slider:before {
+    height: 10px; /* Further reduced */
+    width: 10px; /* Further reduced */
+    left: 2px;
+    bottom: 2px;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(16px); /* Adjusted */
+    transform: translateX(16px);
   }
 }
 
