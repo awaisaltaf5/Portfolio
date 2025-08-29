@@ -15,6 +15,14 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="theme-toggle-container">
+        <span class="theme-label">Light</span>
+        <label class="switch">
+          <input type="checkbox" id="theme-switch" aria-label="Toggle light/dark mode">
+          <span class="slider"></span>
+        </label>
+        <span class="theme-label">Dark</span>
+      </div>
     </nav>
   </header>
 
@@ -29,12 +37,12 @@
           <button onclick="scrollToSection('contact')">Hire Me</button>
         </div>
       </div>
-      <div class="profile-pic animated-pic">
-        <img src="pic.png" alt="Muhammad Awais Altaf" />
+      <div class="profile-pic">
+        <img src="pic.png" alt="Profile picture of Muhammad Awais Altaf" />
       </div>
     </div>
     <div class="scroll-down" onclick="scrollToSection('projects')">
-      <svg viewBox="0 0 24 24">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12 21l-7-7 1.4-1.4L12 18.2l5.6-5.6L19 14l-7 7z"/>
       </svg>
     </div>
@@ -70,7 +78,7 @@
       <li>Postman API</li>
       <li>Backend Development</li>
       <li>Web Development</li>
-    <li>Agile Methodologies</li>
+      <li>Agile Methodologies</li>
       <li>Requirements Analysis</li>
     </ul>
   </section>
@@ -80,44 +88,66 @@
     <div class="contact-container">
       <div class="contact-info">
         <p>
-          <svg viewBox="0 0 24 24">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
           </svg>
           Email: <a href="mailto:businessawaisaltaf@gmail.com">businessawaisaltaf@gmail.com</a>
         </p>
         <p>
-          <svg viewBox="0 0 24 24">
-            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02l-2.2 2.2z"/>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1.45 1 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02l-2.2 2.2z"/>
           </svg>
           Phone: +923364736500
         </p>
       </div>
       <div class="social-links">
-        <a href="https://github.com/awaisaltaf5" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/awaisaltaf5" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
           <svg class="github-icon" viewBox="0 0 24 24">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.113-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
           </svg>
         </a>
-        <a href="https://www.linkedin.com/in/muhammad-awais-altaf-314167329" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/muhammad-awais-altaf-314167329" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
           <svg class="linkedin-icon" viewBox="0 0 24 24">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.604 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+        <a href="https://medium.com/@awaisgakhar28" target="_blank" rel="noopener noreferrer" aria-label="Medium profile">
+          <svg class="medium-icon" viewBox="0 0 24 24">
+            <path d="M2.846 6.887c.03-.295-.083-.586-.303-.784l-2.24-2.7v-.403h6.958l5.378 11.795 4.728-11.795h6.633v.403l-1.916 1.837c-.165.126-.247.333-.213.54v13.498c-.034.207.048.414.213.54l1.87 1.837v.403h-9.412v-.403l1.939-1.882c.19-.19.19-.505.19-.541v-11.773l-5.389 13.688h-.728l-6.275-13.688v9.174c-.052.353.094.708.363.977l2.754 3.333v.403h-7.966v-.403l2.74-3.333c.27-.269.416-.625.363-.978v-10.47zm3.846 2.376l4.853 11.88h.01l5.053-11.88h-9.916z"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/awaisgakhar28" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+          <svg class="instagram-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Instagram logo">
+            <defs>
+              <linearGradient id="igGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#f58529"/>
+                <stop offset="30%" stop-color="#feda77"/>
+                <stop offset="50%" stop-color="#dd2a7b"/>
+                <stop offset="70%" stop-color="#8134af"/>
+                <stop offset="100%" stop-color="#515BD4"/>
+              </linearGradient>
+            </defs>
+            <rect x="16" y="16" width="480" height="480" rx="120" fill="url(#igGrad)"/>
+            <rect x="96" y="96" width="320" height="320" rx="90" fill="none" stroke="#fff" stroke-width="40"/>
+            <circle cx="256" cy="256" r="80" fill="none" stroke="#fff" stroke-width="40"/>
+            <circle cx="350" cy="162" r="26" fill="#fff"/>
           </svg>
         </a>
       </div>
       <form id="contact-form">
         <label for="name">Your Name</label>
-        <input type="text" id="name" name="from_name" placeholder="Enter your name" required />
+        <input type="text" id="name" name="from_name" placeholder="Enter your name" required aria-required="true" />
         <label for="email">Your Email</label>
-        <input type="email" id="email" name="from_email" placeholder="Enter your email" required />
+        <input type="email" id="email" name="from_email" placeholder="Enter your email" required aria-required="true" />
         <label for="message">Your Message</label>
-        <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+        <textarea id="message" name="message" placeholder="Enter your message" required aria-required="true"></textarea>
         <button type="submit">Send Message</button>
       </form>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 Muhammad Awais Altaf. All Rights Reserved.</p>
+    <p>© <span id="current-year"></span> Muhammad Awais Altaf. All Rights Reserved.</p>
   </footer>
 
   <div id="notification" class="notification">
@@ -128,7 +158,7 @@
     <p>Message sent successfully!</p>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dde728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="scripts.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96334c3403f2d2b43',t:'MTc1MzIwNjQ0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.header.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>

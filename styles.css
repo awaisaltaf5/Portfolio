@@ -7,15 +7,37 @@ body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background-color: #f9f9f9;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
 }
 
 header {
   background: #ffffff;
-  padding: 10px 0;
+  padding: 15px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+body.dark header {
+  background: #2c2c2c;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 nav ul {
@@ -32,13 +54,104 @@ nav a {
   color: #333;
   font-weight: bold;
   padding: 8px 12px;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark nav a {
+  color: #e0e0e0;
 }
 
 nav a:hover {
   background: #6c63ff;
   color: white;
   border-radius: 5px;
+}
+
+body.dark nav a:hover {
+  background: #8a83ff;
+}
+
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  position: absolute;
+  right: 15px;
+}
+
+body.dark .theme-toggle-container {
+  background: rgba(40, 40, 40, 0.2);
+}
+
+.theme-label {
+  font-size: 0.9em;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+body.dark .theme-label {
+  color: #e0e0e0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 12px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #6c63ff;
+}
+
+body.dark input:checked + .slider {
+  background-color: #8a83ff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider:hover {
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+}
+
+body.dark .slider:hover {
+  box-shadow: 0 0 10px rgba(138, 131, 255, 0.5);
 }
 
 section {
@@ -55,6 +168,10 @@ section {
   align-items: center;
   justify-content: center;
   background: #e8eaf6;
+}
+
+body.dark #home {
+  background: #2c2c2c;
 }
 
 canvas#networkCanvas {
@@ -75,6 +192,11 @@ canvas#networkCanvas {
   animation: scaleIn 1.5s ease-out forwards;
 }
 
+body.dark .intro h1 {
+  color: #8a83ff;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+}
+
 @keyframes scaleIn {
   0% { transform: scale(0.9); }
   100% { transform: scale(1); }
@@ -84,12 +206,21 @@ canvas#networkCanvas {
   color: #6c63ff;
 }
 
+body.dark .highlight {
+  color: #8a83ff;
+}
+
 .subtitle {
   font-size: 1.5em;
   opacity: 0;
   color: #6c63ff;
   text-shadow: 0 3px 8px rgba(0,0,0,0.5);
   animation: subtitleScaleIn 1.5s ease-out forwards 0.5s;
+}
+
+body.dark .subtitle {
+  color: #8a83ff;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.7);
 }
 
 @keyframes subtitleScaleIn {
@@ -110,16 +241,18 @@ canvas#networkCanvas {
   z-index: 1;
 }
 
+body.dark .buttons button {
+  background: #8a83ff;
+}
+
 .buttons button:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(108, 99, 255, 0.5);
   animation-play-state: paused;
 }
 
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 5px rgba(108, 99, 255, 0.3); }
-  50% { box-shadow: 0 0 15px rgba(108, 99, 255, 0.7); }
-  100% { box-shadow: 0 0 5px rgba(108, 99, 255, 0.3); }
+body.dark .buttons button:hover {
+  box-shadow: 0 4px 10px rgba(138, 131, 255, 0.5);
 }
 
 .profile-pic img {
@@ -134,6 +267,10 @@ canvas#networkCanvas {
   animation: profileFadeIn 1.5s ease-out forwards 0.7s;
 }
 
+body.dark .profile-pic img {
+  border-color: #4a4a4a;
+}
+
 @keyframes profileFadeIn {
   0% { opacity: 0; transform: translateY(20px) scale(0.95); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
@@ -142,6 +279,10 @@ canvas#networkCanvas {
 .profile-pic img:hover {
   transform: scale(1.1) rotate(5deg);
   box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+}
+
+body.dark .profile-pic img:hover {
+  box-shadow: 0 8px 20px rgba(138, 131, 255, 0.4);
 }
 
 .home-flex {
@@ -161,6 +302,10 @@ canvas#networkCanvas {
   border-radius: 10px;
 }
 
+body.dark .home-flex {
+  background: rgba(255, 255, 255, 0.05);
+}
+
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -168,8 +313,22 @@ canvas#networkCanvas {
   }
 }
 
-#projects {
+#projects, #skills, #contact {
   background: #fff;
+}
+
+body.dark #projects, body.dark #skills, body.dark #contact {
+  background: #2c2c2c;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+body.dark h2 {
+  color: #e0e0e0;
 }
 
 .project-container {
@@ -189,9 +348,18 @@ canvas#networkCanvas {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
+body.dark .project-card {
+  background: #3a3a3a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 .project-card:hover {
   transform: scale(1.03);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.dark .project-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 .project-card h3 {
@@ -200,9 +368,17 @@ canvas#networkCanvas {
   font-size: 1.5em;
 }
 
+body.dark .project-card h3 {
+  color: #e0e0e0;
+}
+
 .project-card p {
   color: #666;
   font-size: 1em;
+}
+
+body.dark .project-card p {
+  color: #b0b0b0;
 }
 
 .project-button {
@@ -217,9 +393,17 @@ canvas#networkCanvas {
   visibility: visible;
 }
 
+body.dark .project-button {
+  background: #8a83ff;
+}
+
 .project-button:hover {
   background: #5a54cc;
   transform: scale(1.05);
+}
+
+body.dark .project-button:hover {
+  background: #6c63ff;
 }
 
 .projects-closing {
@@ -229,32 +413,9 @@ canvas#networkCanvas {
   font-size: 1.1em;
 }
 
-#skills, #contact {
-  background: #fff;
+body.dark .projects-closing {
+  color: #b0b0b0;
 }
-
-h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-#projects ul {
-  list-style: none;
-  padding: 0;
-}
-
-#projects li {
-  font-size: 1.2em;
-  margin: 10px 0;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.5s ease-out forwards;
-}
-
-#projects li:nth-child(1) { animation-delay: 0.2s; }
-#projects li:nth-child(2) { animation-delay: 0.4s; }
-#projects li:nth-child(3) { animation-delay: 0.6s; }
 
 .skills-list {
   list-style: none;
@@ -273,9 +434,17 @@ h2 {
   transition: transform 0.3s, box-shadow 0.3s, rotate 0.3s;
 }
 
+body.dark .skills-list li {
+  background: #8a83ff;
+}
+
 .skills-list li:hover {
   transform: scale(1.1) rotate(3deg);
   box-shadow: 0 4px 10px rgba(108, 99, 255, 0.5);
+}
+
+body.dark .skills-list li:hover {
+  box-shadow: 0 4px 10px rgba(138, 131, 255, 0.5);
 }
 
 #contact .contact-container {
@@ -285,6 +454,11 @@ h2 {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+body.dark #contact .contact-container {
+  background: #3a3a3a;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .contact-info {
@@ -301,10 +475,22 @@ h2 {
   gap: 10px;
 }
 
+body.dark .contact-info p {
+  color: #e0e0e0;
+}
+
+body.dark .contact-info a {
+  color: #8a83ff;
+}
+
 .contact-info svg {
   width: 20px;
   height: 20px;
   fill: #6c63ff;
+}
+
+body.dark .contact-info svg {
+  fill: #8a83ff;
 }
 
 .social-links {
@@ -341,8 +527,24 @@ h2 {
   fill: #181717;
 }
 
+body.dark .social-links .github-icon {
+  fill: #e0e0e0;
+}
+
 .social-links .linkedin-icon {
   fill: #0077B5;
+}
+
+.social-links .medium-icon {
+  fill: #000000;
+}
+
+body.dark .social-links .medium-icon {
+  fill: #e0e0e0;
+}
+
+.social-links .instagram-icon {
+  fill: #E1306C;
 }
 
 form {
@@ -360,6 +562,10 @@ form label {
   font-size: 1em;
 }
 
+body.dark form label {
+  color: #e0e0e0;
+}
+
 form input, form textarea {
   width: 100%;
   padding: 12px;
@@ -367,12 +573,25 @@ form input, form textarea {
   border-radius: 5px;
   font-size: 1em;
   transition: border-color 0.3s, box-shadow 0.3s;
+  background: #fff;
+  color: #333;
+}
+
+body.dark form input, body.dark form textarea {
+  border-color: #4a4a4a;
+  background: #3a3a3a;
+  color: #e0e0e0;
 }
 
 form input:focus, form textarea:focus {
   border-color: #6c63ff;
   box-shadow: 0 0 8px rgba(108, 99, 255, 0.3);
   outline: none;
+}
+
+body.dark form input:focus, body.dark form textarea:focus {
+  border-color: #8a83ff;
+  box-shadow: 0 0 8px rgba(138, 131, 255, 0.3);
 }
 
 form textarea {
@@ -392,10 +611,18 @@ form button {
   animation: glowPulse 2s infinite;
 }
 
+body.dark form button {
+  background: #8a83ff;
+}
+
 form button:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(108, 99, 255, 0.5);
   animation-play-state: paused;
+}
+
+body.dark form button:hover {
+  box-shadow: 0 4px 10px rgba(138, 131, 255, 0.5);
 }
 
 .notification {
@@ -414,6 +641,10 @@ form button:hover {
   align-items: center;
   gap: 10px;
   min-width: 250px;
+}
+
+body.dark .notification {
+  background: rgba(40, 40, 40, 0.95);
 }
 
 .notification.show {
@@ -439,6 +670,10 @@ form button:hover {
   animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
 
+body.dark .checkmark__circle {
+  stroke: #8a83ff;
+}
+
 .checkmark__check {
   stroke: #6c63ff;
   stroke-width: 2;
@@ -449,6 +684,10 @@ form button:hover {
   animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
 }
 
+body.dark .checkmark__check {
+  stroke: #8a83ff;
+}
+
 @keyframes stroke {
   100% { stroke-dashoffset: 0; }
 }
@@ -457,6 +696,10 @@ form button:hover {
   margin: 0;
   font-size: 1.1em;
   color: #333;
+}
+
+body.dark .notification p {
+  color: #e0e0e0;
 }
 
 .scroll-down {
@@ -507,6 +750,11 @@ footer {
   font-weight: 400;
 }
 
+body.dark footer {
+  background: #8a83ff;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+}
+
 footer p {
   margin: 0;
 }
@@ -534,6 +782,29 @@ footer p {
   nav ul {
     flex-direction: column;
     gap: 10px;
+  }
+
+  .theme-toggle-container {
+    right: 10px;
+    padding: 4px 8px;
+  }
+
+  .theme-label {
+    font-size: 0.8em;
+  }
+
+  .switch {
+    width: 40px;
+    height: 20px;
+  }
+
+  .slider:before {
+    height: 14px;
+    width: 14px;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(20px);
   }
 
   #contact .contact-container {
