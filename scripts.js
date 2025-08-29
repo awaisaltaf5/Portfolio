@@ -15,28 +15,34 @@ function scrollToSection(id) {
 }
 
 // Theme toggle functionality
-const themeSwitch = document.getElementById('theme-switch');
-const slider = document.querySelector('.slider');
+const themeToggle = document.querySelector('.theme-toggle');
+const sunIcon = document.querySelector('.sun-icon');
+const moonIcon = document.querySelector('.moon-icon');
 
 // Load saved theme from localStorage
 const savedTheme = localStorage.getItem('theme') || 'light';
 document.body.classList.add(savedTheme);
 if (savedTheme === 'dark') {
-  themeSwitch.checked = true;
+  sunIcon.style.display = 'none';
+  moonIcon.style.display = 'block';
+  themeToggle.dataset.tooltip = 'Light Mode';
+} else {
+  sunIcon.style.display = 'block';
+  moonIcon.style.display = 'none';
+  themeToggle.dataset.tooltip = 'Dark Mode';
 }
 
-themeSwitch.addEventListener('change', () => {
+themeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark');
   const isDark = document.body.classList.contains('dark');
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  // Update particle colors and other theme-dependent elements
-  particles.forEach(p => {
-    p.color = isDark ? '#8a83ff' : '#d0d2f7';
-  });
+  sunIcon.style.display = isDark ? 'none' : 'block';
+  moonIcon.style.display = isDark ? 'block' : 'none';
+  themeToggle.dataset.tooltip = isDark ? 'Light Mode' : 'Dark Mode';
   // Add scale animation on toggle
-  slider.style.transform = 'scale(1.15)';
+  themeToggle.style.transform = 'scale(1.25)';
   setTimeout(() => {
-    slider.style.transform = 'scale(1)';
+    themeToggle.style.transform = 'scale(1)';
   }, 300);
 });
 
@@ -172,5 +178,6 @@ function animate() {
 
   requestAnimationFrame(animate);
 }
+
 
 animate();
