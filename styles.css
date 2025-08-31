@@ -22,7 +22,7 @@ body.dark {
 
 header {
   background: #ffffff;
-  padding: 10px 0; /* Reduced from 15px for minimalist height */
+  padding: 10px 0;
   position: sticky;
   top: 0;
   z-index: 1001;
@@ -36,7 +36,7 @@ body.dark header {
 
 nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   max-width: 1200px;
@@ -44,11 +44,35 @@ nav {
   padding: 0 15px;
 }
 
+.signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5em;
+  color: #6c63ff;
+  font-weight: 700;
+  transform: rotate(-2deg);
+  -webkit-transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+body.dark .signature {
+  color: #8a83ff;
+}
+
+.signature:hover {
+  transform: scale(1.05) rotate(0deg);
+  text-shadow: 0 2px 5px rgba(108, 99, 255, 0.5);
+}
+
+body.dark .signature:hover {
+  text-shadow: 0 2px 5px rgba(138, 131, 255, 0.5);
+}
+
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 15px; /* Reduced gap for compactness */
+  gap: 15px;
   margin: 0;
   padding: 0;
 }
@@ -57,11 +81,11 @@ nav a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
-  padding: 8px 12px; /* Adjusted for desktop */
+  padding: 8px 12px;
   -webkit-transition: background 0.3s, color 0.3s;
   transition: background 0.3s, color 0.3s;
   display: block;
-  font-size: 0.9em; /* Slightly reduced font size */
+  font-size: 0.9em;
 }
 
 body.dark nav a {
@@ -81,11 +105,11 @@ body.dark nav a:hover {
 .theme-toggle-container {
   display: flex;
   align-items: center;
-  gap: 8px; /* Reduced gap */
-  padding: 3px 6px; /* Reduced padding for minimalist design */
+  gap: 8px;
+  padding: 3px 6px;
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 15px; /* Slightly smaller radius */
-  margin: 5px auto 0; /* Centered below links with top margin */
+  border-radius: 15px;
+  margin: 5px 0;
   width: fit-content;
 }
 
@@ -94,7 +118,7 @@ body.dark .theme-toggle-container {
 }
 
 .theme-label {
-  font-size: 0.8em; /* Reduced font size */
+  font-size: 0.8em;
   color: #333;
   font-weight: 500;
   -webkit-transition: color 0.3s;
@@ -108,8 +132,8 @@ body.dark .theme-label {
 .switch {
   position: relative;
   display: inline-block;
-  width: 40px; /* Reduced from 50px */
-  height: 20px; /* Reduced from 24px */
+  width: 50px;
+  height: 24px;
 }
 
 .switch input {
@@ -125,44 +149,65 @@ body.dark .theme-label {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background: linear-gradient(90deg, #ccc, #999);
   -webkit-transition: 0.4s;
-  transition: 0.4s;
-  border-radius: 10px; /* Reduced from 12px */
+  transition: 0.4s ease-in-out;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .slider {
+  background: linear-gradient(90deg, #4a4a4a, #2c2c2c);
 }
 
 .slider:before {
   position: absolute;
-  content: "";
-  height: 14px; /* Reduced from 16px */
-  width: 14px; /* Reduced from 16px */
+  content: "☀️";
+  height: 18px;
+  width: 18px;
   left: 3px;
   bottom: 3px;
-  background-color: white;
+  background-color: #fff;
   -webkit-transition: 0.4s;
-  transition: 0.4s;
+  transition: 0.4s ease-in-out;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #f1c40f;
 }
 
 input:checked + .slider {
-  background-color: #6c63ff;
-}
-
-body.dark input:checked + .slider {
-  background-color: #8a83ff;
+  background: linear-gradient(90deg, #6c63ff, #8a83ff);
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(20px); /* Adjusted for smaller width */
-  transform: translateX(20px);
+  -webkit-transform: translateX(26px);
+  transform: translateX(26px);
+  content: "🌙";
+  color: #e0e0e0;
 }
 
 .slider:hover {
-  box-shadow: 0 0 8px rgba(108, 99, 255, 0.5); /* Reduced shadow size */
+  box-shadow: 0 0 12px rgba(108, 99, 255, 0.6);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 body.dark .slider:hover {
-  box-shadow: 0 0 8px rgba(138, 131, 255, 0.5);
+  box-shadow: 0 0 12px rgba(138, 131, 255, 0.6);
+}
+
+input:checked + .slider:before {
+  -webkit-animation: bounceIn 0.3s ease-out;
+  animation: bounceIn 0.3s ease-out;
+}
+
+@keyframes bounceIn {
+  0% { transform: translateX(0) scale(0.8); }
+  50% { transform: translateX(13px) scale(1.2); }
+  100% { transform: translateX(26px) scale(1); }
 }
 
 section {
@@ -416,7 +461,7 @@ body.dark .project-card p {
   text-decoration: none;
   border-radius: 5px;
   margin-top: 1rem;
-  -webkit-transition: background 0.3s, -webkit-transform 0.3s;
+  -webkit-transition: background 0.3s, transform 0.3s;
   transition: background 0.3s, transform 0.3s;
   visibility: visible;
   min-width: 120px;
@@ -442,10 +487,29 @@ body.dark .project-button:hover {
   font-style: italic;
   color: #666;
   font-size: 1.1em;
+  position: relative;
+  display: inline-block;
 }
 
 body.dark .projects-closing {
   color: #b0b0b0;
+}
+
+#typewriter::after {
+  content: '|';
+  display: inline-block;
+  animation: blink 0.7s infinite;
+  color: #6c63.Initial
+
+System: 255;
+}
+
+body.dark #typewriter::after {
+  color: #8a83ff;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 .skills-list {
@@ -809,50 +873,54 @@ footer p {
 
 @media (max-width: 768px) {
   nav {
-    flex-direction: row; /* Changed to horizontal */
-    padding: 2px 0; /* Reduced for minimalist height */
-    justify-content: center; /* Ensure centered */
+    flex-direction: column;
+    padding: 5px 0;
+    align-items: center;
+  }
+
+  .signature {
+    font-size: 1.2em;
+    margin-bottom: 5px;
   }
 
   nav ul {
-    flex-direction: row; /* Horizontal layout */
-    gap: 10px; /* Reduced gap */
+    flex-direction: row;
+    gap: 10px;
     padding: 0;
     margin: 0;
   }
 
   nav a {
-    padding: 4px 6px; /* Reduced padding for minimalist design */
-    font-size: 0.8em; /* Reduced font size */
+    padding: 4px 6px;
+    font-size: 0.8em;
     text-align: center;
   }
 
   .theme-toggle-container {
-    position: static;
-    margin: 5px auto 0; /* Centered below links */
+    margin: 5px auto 0;
     width: fit-content;
-    order: 1; /* Move below ul */
   }
 
   .theme-label {
-    font-size: 0.7em; /* Further reduced for mobile */
+    font-size: 0.7em;
   }
 
   .switch {
-    width: 36px; /* Reduced */
-    height: 18px; /* Reduced */
+    width: 40px;
+    height: 20px;
   }
 
   .slider:before {
-    height: 12px; /* Reduced */
-    width: 12px; /* Reduced */
-    left: 2px;
-    bottom: 2px;
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    font-size: 10px;
   }
 
   input:checked + .slider:before {
-    -webkit-transform: translateX(18px); /* Adjusted for smaller width */
-    transform: translateX(18px);
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
   }
 
   .home-flex {
@@ -927,11 +995,19 @@ footer p {
     font-size: 1em;
     margin-top: 0.75rem;
   }
+
+  .projects-closing {
+    font-size: 1em;
+  }
 }
 
 @media (max-width: 480px) {
   section {
     padding: 40px 10px;
+  }
+
+  .signature {
+    font-size: 1em;
   }
 
   .intro h1 {
@@ -975,6 +1051,28 @@ footer p {
     font-size: 1em;
   }
 
+  .theme-label {
+    font-size: 0.6em;
+  }
+
+  .switch {
+    width: 36px;
+    height: 18px;
+  }
+
+  .slider:before {
+    height: 12px;
+    width: 12px;
+    left: 2px;
+    bottom: 2px;
+    font-size: 8px;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(18px);
+    transform: translateX(18px);
+  }
+
   form label {
     font-size: 0.9em;
   }
@@ -1005,29 +1103,12 @@ footer p {
   }
 
   nav a {
-    padding: 3px 5px; /* Further reduced for very small screens */
-    font-size: 0.7em; /* Further reduced */
+    padding: 3px 5px;
+    font-size: 0.7em;
   }
 
-  .theme-label {
-    font-size: 0.6em; /* Further reduced */
-  }
-
-  .switch {
-    width: 32px; /* Further reduced */
-    height: 16px; /* Further reduced */
-  }
-
-  .slider:before {
-    height: 10px; /* Further reduced */
-    width: 10px; /* Further reduced */
-    left: 2px;
-    bottom: 2px;
-  }
-
-  input:checked + .slider:before {
-    -webkit-transform: translateX(16px); /* Adjusted */
-    transform: translateX(16px);
+  .projects-closing {
+    font-size: 0.9em;
   }
 }
 

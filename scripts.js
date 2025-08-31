@@ -96,6 +96,61 @@ if (currentYearElement) {
   currentYearElement.textContent = new Date().getFullYear();
 }
 
+// Scroll to section function for buttons and scroll-down arrow
+function scrollToSection(sectionId) {
+  const targetElement = document.getElementById(sectionId);
+  if (targetElement) {
+    const offset = 80; // Offset to account for navbar height
+    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+}
+
+// Typewriter effect for projects closing text
+const typewriterElement = document.getElementById('typewriter');
+const text = "Many exciting new projects and features are currently in the development process. Stay tuned for more updates!";
+let isTyping = false;
+
+function typeWriter(text, element, speed = 50) {
+  let i = 0;
+  element.textContent = '';
+  isTyping = true;
+
+  function type() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    } else {
+      isTyping = false;
+    }
+  }
+  type();
+}
+
+// Intersection Observer for typewriter effect
+const projectsSection = document.getElementById('projects');
+if (typewriterElement && projectsSection) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !isTyping) {
+        typeWriter(text, typewriterElement);
+      } else if (!entry.isIntersecting && !isTyping) {
+        typewriterElement.textContent = '';
+      }
+    });
+  }, {
+    threshold: 0.1 // Trigger when 10% of the section is visible
+  });
+
+  observer.observe(projectsSection);
+}
+
 // Network particle animation
 const canvas = document.getElementById('networkCanvas');
 const ctx = canvas?.getContext('2d');
