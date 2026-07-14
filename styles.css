@@ -499,9 +499,7 @@ body.dark .projects-closing {
   content: '|';
   display: inline-block;
   animation: blink 0.7s infinite;
-  color: #6c63.Initial
-
-System: 255;
+  color: #6c63ff;
 }
 
 body.dark #typewriter::after {
@@ -519,7 +517,7 @@ body.dark #typewriter::after {
   flex-wrap: wrap;
   gap: 15px;
   padding: 0;
-  max-width: 600px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -1118,7 +1116,7 @@ footer p {
   100% { box-shadow: 0 0 5px rgba(108, 99, 255, 0.4); }
 }
 
- @keyframes glowPulse {
+@keyframes glowPulse {
   0% { box-shadow: 0 0 5px rgba(138, 131, 255, 0.4); }
   50% { box-shadow: 0 0 20px rgba(138, 131, 255, 0.8); }
   100% { box-shadow: 0 0 5px rgba(138, 131, 255, 0.4); }
