@@ -601,6 +601,8 @@ body.dark #typewriter::after {
 .skills-list {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   justify-content: center;
   flex-wrap: wrap;
   gap: 15px;
@@ -1052,9 +1054,15 @@ footer p {
   }
 
   .skills-list {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .skills-list li {
+    width: auto;
+    min-width: 0;
   }
 
   .scroll-down {
@@ -1154,9 +1162,10 @@ footer p {
   }
 
   .skills-list li {
-    padding: 8px 12px;
-    font-size: 0.9em;
-    min-width: 80px;
+    width: auto;
+    min-width: 0;
+    padding: 6px 10px;
+    font-size: 0.85em;
   }
 
   .contact-info p {
