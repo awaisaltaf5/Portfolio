@@ -1,0 +1,9 @@
+{
+  "build": {
+    "env": {
+      "EMAILJS_PUBLIC_KEY": "@emailjs_public_key",
+      "EMAILJS_SERVICE_ID": "@emailjs_service_id",
+      "EMAILJS_TEMPLATE_ID": "@emailjs_template_id"
+    }
+  }
+}
