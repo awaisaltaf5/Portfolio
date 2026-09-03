@@ -512,9 +512,20 @@ body.dark .project-tech-title {
 .tech-icon {
   width: 32px;
   height: 32px;
+  max-width: 32px;
+  max-height: 32px;
   object-fit: contain;
   -webkit-transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
+}
+
+.project-tech img,
+.skills-list li img {
+  max-width: 32px;
+  max-height: 32px;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 .tech-item:hover .tech-icon {
@@ -618,6 +629,8 @@ body.dark #typewriter::after {
 .skill-icon {
   width: 32px;
   height: 32px;
+  max-width: 32px;
+  max-height: 32px;
   object-fit: contain;
   flex-shrink: 0;
 }
