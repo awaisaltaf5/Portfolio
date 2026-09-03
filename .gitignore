@@ -1,0 +1,6 @@
+# Local environment configuration (contains keys - never commit)
+config.js
+
+# OS / editor noise
+.DS_Store
+Thumbs.db

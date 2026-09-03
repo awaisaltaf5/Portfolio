@@ -1,5 +1,9 @@
-// Initialize EmailJS with your Public Key (replace with your actual key)
-emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
+// Initialize EmailJS from external config (config.js - not committed to the repo)
+if (typeof window.APP_CONFIG !== 'undefined' && window.APP_CONFIG.emailjs) {
+  emailjs.init(window.APP_CONFIG.emailjs.publicKey);
+} else {
+  console.warn('EmailJS config missing: create config.js from config.example.js');
+}
 
 // Smooth scroll for nav links with offset
 document.querySelectorAll('nav a').forEach(link => {
@@ -64,7 +68,18 @@ if (contactForm) {
 
     const notification = document.getElementById('notification');
 
-    emailjs.sendForm('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', this)
+    if (typeof window.APP_CONFIG === 'undefined' || !window.APP_CONFIG.emailjs) {
+      alert('Contact form is not configured. Please add config.js (see config.example.js).');
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
+      }
+      return;
+    }
+
+    const { serviceId, templateId } = window.APP_CONFIG.emailjs;
+
+    emailjs.sendForm(serviceId, templateId, this)
       .then(function(response) {
         if (notification) {
           notification.classList.add('show');
