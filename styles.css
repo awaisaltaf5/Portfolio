@@ -481,6 +481,83 @@ body.dark .project-button {
 body.dark .project-button:hover {
   background: #6c63ff;
 }
+.project-tech-title {
+  margin: 0 0 8px;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 700;
+  color: #111;
+}
+
+body.dark .project-tech-title {
+  color: #ffffff;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 0.75rem;
+}
+
+.tech-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 64px;
+}
+
+.tech-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.tech-item:hover .tech-icon {
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+}
+
+.tech-name {
+  font-size: 0.62rem;
+  line-height: 1.15;
+  text-align: center;
+  color: #555;
+  word-break: break-word;
+}
+
+body.dark .tech-name {
+  color: #b8b8c0;
+}
+
+.tech-label {
+  display: inline-block;
+  background: #6c63ff;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75em;
+  margin: 2px;
+}
+
+body.dark .tech-label {
+  background: #8a83ff;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.project-links .project-button {
+  margin-top: 0;
+}
 
 .projects-closing {
   margin-top: 2rem;
@@ -522,24 +599,48 @@ body.dark #typewriter::after {
 }
 
 .skills-list li {
-  background: #6c63ff;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 5px;
-  -webkit-transition: -webkit-transform 0.3s, box-shadow 0.3s, rotate 0.3s;
-  transition: transform 0.3s, box-shadow 0.3s, rotate 0.3s;
-  min-width: 100px;
+  background: transparent;
+  color: #333;
+  padding: 0;
+  border-radius: 0;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  min-width: 0;
   text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  width: 88px;
+}
+
+.skill-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.skills-list li span.skill-name,
+.skills-list li {
+  font-size: 0.72rem;
+  line-height: 1.2;
+  word-break: break-word;
 }
 
 body.dark .skills-list li {
-  background: #8a83ff;
+  background: transparent;
+  color: #e0e0e0;
+}
+
+body.dark .skill-icon.invert-dark {
+  filter: invert(1);
 }
 
 .skills-list li:hover {
-  -webkit-transform: scale(1.1) rotate(3deg);
-  transform: scale(1.1) rotate(3deg);
-  box-shadow: 0 4px 10px rgba(108, 99, 255, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 body.dark .skills-list li:hover {
