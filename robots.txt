@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://muhammad-awais-altaf-dev.vercel.app/sitemap.xml
